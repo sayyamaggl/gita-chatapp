@@ -1,0 +1,73 @@
+/* ---- QUOTE OF THE DAY ---- */
+.quote-section {
+  padding: 2.5rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.quote-card {
+  max-width: 800px;
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px 4px 20px 4px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-theme);
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+[data-theme="vishvarupa"] .quote-card {
+  background: var(--bg-elevated);
+  border-color: var(--border-accent);
+  box-shadow: 0 0 40px rgba(255, 214, 102, 0.05);
+}
+
+.quote-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.quote-sanskrit {
+  font-family: var(--font-sanskrit);
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.quote-translation {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.quote-ref {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-style: italic;
+}
+
+.quote-loading {
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .quote-section { padding: 1.25rem 1rem; }
+  .quote-card { padding: 1.75rem 1.25rem; }
+  .quote-sanskrit { font-size: 1.3rem; }
+}

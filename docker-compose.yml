@@ -1,0 +1,34 @@
+
+services:
+  gita-db:
+    restart: always
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: gita-db
+    ports:
+      - "31705:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    restart: always
+    build: ./backend
+    environment:
+      - DATABASE_URL=postgresql://admin:admin123@gita-db:5432/gita-db
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8005:8005"
+    depends_on:
+      - gita-db
+
+  frontend:
+    restart: always
+    build: ./frontend
+    ports:
+      - "3005:80"
+
+volumes:
+  postgres_data:
